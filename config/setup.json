@@ -1,0 +1,12 @@
+{
+    "version": "1.00",
+    "model": "claude-sonnet-4-20250514",
+    "max_tokens": 1000,
+    "debate_topic": "",
+    "max_rounds": 10,
+    "api_timeout_seconds": 60,
+    "max_restart_attempts": 3,
+    "keepalive_interval_seconds": 10,
+    "keepalive_timeout_seconds": 30,
+    "budget_cap_usd": 5.0
+}

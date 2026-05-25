@@ -1,2 +1,36 @@
+# Secrets
 .env
+*.key
+*.pem
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+\.pytest_cache
+
+# Virtual environment
+.venv/
+
+# Results and logs
+results/
+*.log
+
+# Linter cache
+.ruff_cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Project-specific
 /instructions

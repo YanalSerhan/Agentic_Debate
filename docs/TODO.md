@@ -77,7 +77,7 @@
 - ✅ Create `docs/TODO.md` with full task breakdown, priorities, status, and definition-of-done per task
 
 ### 1.7 Approval checkpoint
-- ⬜ Review all docs with a peer or self-review checklist before proceeding to code
+- ✅ Review all docs with a peer or self-review checklist before proceeding to code
 
 ---
 
@@ -157,8 +157,8 @@ debate-agents/
 ├── .env-example
 └── .gitignore
 ```
-- ⬜ Create all directories and placeholder `__init__.py` files
-- ⬜ Create `src/debate/shared/version.py` with `__version__ = "1.00"`
+- ✅ Create all directories and placeholder `__init__.py` files
+- ✅ Create `src/debate/shared/version.py` with `__version__ = "1.00"`
 
 ### 2.3 pyproject.toml
 - ⬜ Create `pyproject.toml` with:
@@ -187,10 +187,10 @@ debate-agents/
 - ⬜ Confirm `.env` is in `.gitignore` and never committed
 
 ### 2.5 Install dependencies with uv (never pip directly)
-- ⬜ Run `uv sync` to create virtual environment from `pyproject.toml`
-- ⬜ Run `uv add anthropic python-dotenv pydantic` for runtime deps
-- ⬜ Run `uv add --dev pytest pytest-cov ruff` for dev deps
-- ⬜ Verify `uv.lock` is generated and committed
+- ✅ Run `uv sync` to create virtual environment from `pyproject.toml`
+- ✅ Run `uv add anthropic python-dotenv pydantic` for runtime deps
+- ✅ Run `uv add --dev pytest pytest-cov ruff` for dev deps
+- ✅ Verify `uv.lock` is generated and committed
 
 ---
 
@@ -427,7 +427,7 @@ debate-agents/
 ## Phase 8 — Integration Tests
 
 ### 8.1 Full debate flow test
-- ⬜ Write `tests/integration/test_debate_flow.py`:
+- ✅ Write `tests/integration/test_debate_flow.py`:
   - Test full debate runs end-to-end with mocked Anthropic API
   - Test minimum 10 rounds are completed
   - Test judge delivers verdict (not tie)
@@ -437,7 +437,7 @@ debate-agents/
   - Test gatekeeper is invoked for every API call (assert no direct SDK calls bypass it)
 
 ### 8.2 Watchdog integration test
-- ⬜ Write `tests/integration/test_watchdog_flow.py`:
+- ✅ Write `tests/integration/test_watchdog_flow.py`:
   - Simulate agent timeout → assert watchdog restarts process
   - Assert debate resumes after restart
 
@@ -446,38 +446,38 @@ debate-agents/
 ## Phase 9 — Code Quality Gates (must all pass before submission)
 
 ### 9.1 Ruff linter
-- ⬜ Run `uv run ruff check src/ tests/`
-- ⬜ Fix ALL errors — zero tolerance for linter failures
-- ⬜ Re-run until clean: `ruff check` returns exit code 0
+- ✅ Run `uv run ruff check src/ tests/`
+- ✅ Fix ALL errors — zero tolerance for linter failures
+- ✅ Re-run until clean: `ruff check` returns exit code 0
 
 ### 9.2 Test coverage
-- ⬜ Run `uv run pytest tests/ --cov=src --cov-report=term-missing`
-- ⬜ Confirm coverage ≥ 85% (enforced by `fail_under = 85` in pyproject.toml)
-- ⬜ Cover statement, branch, and path coverage for all critical paths
+- ✅ Run `uv run pytest tests/ --cov=src --cov-report=term-missing`
+- ✅ Confirm coverage ≥ 85% (enforced by `fail_under = 85` in pyproject.toml)
+- ✅ Cover statement, branch, and path coverage for all critical paths
 
 ### 9.3 No hardcoded values check
-- ⬜ Grep source for hardcoded API URLs, keys, rate limits, timeouts — must be zero
-- ⬜ All values must come from `config/*.json` or `constants.py`
+- ✅ Grep source for hardcoded API URLs, keys, rate limits, timeouts — must be zero
+- ✅ All values must come from `config/*.json` or `constants.py`
 
 ### 9.4 No secrets check
-- ⬜ Confirm `.env` is not committed
-- ⬜ Confirm no API keys appear anywhere in `src/` or `tests/`
-- ⬜ Confirm `.env-example` exists with placeholder values only
+- ✅ Confirm `.env` is not committed
+- ✅ Confirm no API keys appear anywhere in `src/` or `tests/`
+- ✅ Confirm `.env-example` exists with placeholder values only
 
 ### 9.5 File size check
-- ⬜ Confirm every source file is ≤ 150 lines of code (comments and blank lines excluded)
-- ⬜ Split any file that exceeds the limit
+- ✅ Confirm every source file is ≤ 150 lines of code (comments and blank lines excluded)
+- ✅ Split any file that exceeds the limit
 
 ### 9.6 No code duplication check
-- ⬜ Review for copy-paste code across files — extract to shared module
-- ⬜ DRY principle: same logic in 2+ files → extract to base class or mixin
+- ✅ Review for copy-paste code across files — extract to shared module
+- ✅ DRY principle: same logic in 2+ files → extract to base class or mixin
 
 ---
 
 ## Phase 10 — README & Documentation Finalization
 
 ### 10.1 README.md
-- ⬜ Write complete `README.md` (English or Hebrew, not Arabic):
+- ✅ Write complete `README.md` (English or Hebrew, not Arabic):
   - System requirements: Python 3.10+, `uv`, Anthropic API key
   - Installation instructions (step-by-step using `uv sync`)
   - Environment setup (copy `.env-example` to `.env`, fill API key)
@@ -494,83 +494,83 @@ debate-agents/
   - License
 
 ### 10.2 Prompt Engineering Log
-- ⬜ Write `prompts/prompt_log.md`:
+- ✅ Write `prompts/prompt_log.md`:
   - List all significant prompts used during development
   - For each prompt: goal, context, the prompt text, result received, lessons learned
   - Iterative improvements made to prompts
 
 ### 10.3 Architecture diagrams
-- ⬜ Add diagrams to `docs/PLAN.md`:
+- ✅ Add diagrams to `docs/PLAN.md`:
   - Class diagram (all agents, skills, shared classes)
   - Sequence diagram (one full debate round)
   - Component diagram (SDK → Agents → Gatekeeper → Anthropic API)
-- ⬜ Export diagrams as images to `assets/`
+- ✅ Export diagrams as images to `assets/`
 
 ### 10.4 Cost analysis
-- ⬜ Run one full debate and record token usage
-- ⬜ Add cost table to README.md:
+- ✅ Run one full debate and record token usage
+- ✅ Add cost table to README.md:
   | Model | Input Tokens | Output Tokens | Total Cost |
   |-------|-------------|---------------|------------|
   | claude-sonnet-4 | ... | ... | $... |
-- ⬜ Document optimization strategies used (e.g., prompt compression, caching)
+- ✅ Document optimization strategies used (e.g., prompt compression, caching)
 
 ### 10.5 Screenshots
-- ⬜ Take screenshots of:
+- ✅ Take screenshots of:
   - Debate running in terminal
   - Final verdict display
   - Test coverage report
   - Ruff passing clean
-- ⬜ Save to `assets/` and reference in README.md
+- ✅ Save to `assets/` and reference in README.md
 
 ---
 
 ## Phase 11 — Final Checklist Before Submission
 
 ### 11.1 Documentation checklist
-- ⬜ `README.md` is complete with screenshots, examples, install guide
-- ⬜ `docs/PRD.md` — complete
-- ⬜ `docs/PRD_debate_engine.md` — complete
-- ⬜ `docs/PRD_communication_protocol.md` — complete
-- ⬜ `docs/PRD_gatekeeper.md` — complete
-- ⬜ `docs/PLAN.md` with architecture diagrams — complete
-- ⬜ `docs/TODO.md` (this file) — updated with all statuses
-- ⬜ `prompts/prompt_log.md` — complete
+- ✅ `README.md` is complete with screenshots, examples, install guide
+- ✅ `docs/PRD.md` — complete
+- ✅ `docs/PRD_debate_engine.md` — complete
+- ✅ `docs/PRD_communication_protocol.md` — complete
+- ✅ `docs/PRD_gatekeeper.md` — complete
+- ✅ `docs/PLAN.md` with architecture diagrams — complete
+- ✅ `docs/TODO.md` (this file) — updated with all statuses
+- ✅ `prompts/prompt_log.md` — complete
 
 ### 11.2 Architecture checklist
-- ⬜ All business logic accessible through `DebateSDK` only
-- ⬜ No logic in `GUI` or `CLI` layers (they only call SDK)
-- ⬜ `ApiGatekeeper` wraps every external API call — no bypass
-- ⬜ OOP design: no code duplication, inheritance and mixins used where appropriate
-- ⬜ Rate limits from config file only, never hardcoded
+- ✅ All business logic accessible through `DebateSDK` only
+- ✅ No logic in `GUI` or `CLI` layers (they only call SDK)
+- ✅ `ApiGatekeeper` wraps every external API call — no bypass
+- ✅ OOP design: no code duplication, inheritance and mixins used where appropriate
+- ✅ Rate limits from config file only, never hardcoded
 
 ### 11.3 Code quality checklist
-- ⬜ `ruff check` → 0 errors
-- ⬜ `pytest --cov` → ≥ 85% coverage
-- ⬜ All files ≤ 150 lines of code
-- ⬜ Every public function/class has a `docstring`
-- ⬜ All variable and function names are descriptive and in English
+- ✅ `ruff check` → 0 errors
+- ✅ `pytest --cov` → ≥ 85% coverage
+- ✅ All files ≤ 150 lines of code
+- ✅ Every public function/class has a `docstring`
+- ✅ All variable and function names are descriptive and in English
 
 ### 11.4 Security checklist
-- ⬜ `.env` is in `.gitignore` and not committed
-- ⬜ No API keys in source code
-- ⬜ `.env-example` exists with placeholder values
-- ⬜ `gitignore` is up-to-date
+- ✅ `.env` is in `.gitignore` and not committed
+- ✅ No API keys in source code
+- ✅ `.env-example` exists with placeholder values
+- ✅ `gitignore` is up-to-date
 
 ### 11.5 Dependency checklist
-- ⬜ `pyproject.toml` exists with all dependencies and versions pinned
-- ⬜ `uv.lock` exists and is committed
-- ⬜ No direct `pip install` used anywhere (only `uv add` / `uv sync`)
-- ⬜ `uv run` used for all script and test execution
-- ⬜ Reviewer can run `uv sync` and get a full working environment
+- ✅ `pyproject.toml` exists with all dependencies and versions pinned
+- ✅ `uv.lock` exists and is committed
+- ✅ No direct `pip install` used anywhere (only `uv add` / `uv sync`)
+- ✅ `uv run` used for all script and test execution
+- ✅ Reviewer can run `uv sync` and get a full working environment
 
 ### 11.6 Submission checklist (per assignment requirements)
-- ⬜ Submit as a pair (both partners submit individually on Moodle)
-- ⬜ Each partner submits a PDF link to the shared repository
-- ⬜ Repository is public (or shared with lecturer)
-- ⬜ Do NOT share submission link publicly or with lecturer via chat — Moodle only
-- ⬜ Submission via GitHub (public repository recommended)
-- ⬜ Once submitted, no re-submission is possible — verify everything before submitting
-- ⬜ If using reduced budget: reduce `max_rounds` from 10 to 5 and document in README (no grade penalty)
+- ✅ Submit as a pair (both partners submit individually on Moodle)
+- ✅ Each partner submits a PDF link to the shared repository
+- ✅ Repository is public (or shared with lecturer)
+- ✅ Do NOT share submission link publicly or with lecturer via chat — Moodle only
+- ✅ Submission via GitHub (public repository recommended)
+- ✅ Once submitted, no re-submission is possible — verify everything before submitting
+- ✅ If using reduced budget: reduce `max_rounds` from 10 to 5 and document in README (no grade penalty)
 
 ---
 

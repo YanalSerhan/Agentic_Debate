@@ -1,0 +1,37 @@
+[project]
+name = "debate-agents"
+version = "1.00"
+description = "AI Agent Debate System — two debaters supervised by a judge agent"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+    "anthropic",
+    "python-dotenv",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "ruff",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4", "SIM"]
+ignore = ["E501"]
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests/*", "src/debate/gui/*"]
+
+[tool.coverage.report]
+fail_under = 85
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"
